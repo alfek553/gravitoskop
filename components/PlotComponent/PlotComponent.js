@@ -64,7 +64,7 @@ const PlotComponent = () => {
     };
     
     // Обновляем график каждые 2 секунды
-    setInterval(updatePlot, 2000);
+    setInterval(updatePlot, 40000);
     };
     
     loadPlotly();
