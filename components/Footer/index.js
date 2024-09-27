@@ -18,10 +18,10 @@ async function Footer() {
             aria-label="List of Additional Navigation Links"
           >
             <li className={styles.listItem}>
-              <NavLink text="Privacy Policy" link="privacy" />
+              {/* <NavLink text="Privacy Policy" link="privacy" /> */}
             </li>
             <li className={styles.listItem}>
-              <NavLink text="Rules" link="rules" />
+              {/* <NavLink text="Rules" link="rules" /> */}
             </li>
           </ul>
         </nav>

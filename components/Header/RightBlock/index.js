@@ -12,7 +12,7 @@ function RightBlock() {
         className={styles.navList}
       >
         <li className={styles.listItem}>
-          <NavLink text="Contact Us" link="contact-us" />
+          {/* <NavLink text="Contact Us" link="contact-us" /> */}
         </li>
         <li className={styles.listItem}>
           <NavLink text="Game" link="/" />
