@@ -1,0 +1,31 @@
+@use '@styles/mixins';
+@use '@styles/variables';
+
+.container,
+.link {
+  @include mixins.container;
+  align-items: center;
+  flex-direction: row;
+  width: fit-content;
+}
+
+.link {
+  & img {
+    margin: 0.1875rem 0;
+  }
+}
+
+.logoText,
+.title {
+  font-size: clamp(0.875rem, -1.562rem + 13vw, 1.2rem);
+  font-weight: 700;
+}
+
+.logoText {
+  color: variables.$colorBlack;
+  margin: 0 0 0 0.625rem;
+
+  & .redText {
+    color: variables.$colorRed;
+  }
+}

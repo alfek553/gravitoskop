@@ -1,0 +1,14 @@
+@use '@styles/variables';
+
+.link {
+  color: variables.$colorYellow;
+  border-bottom: 0.1rem dashed variables.$colorYellow;
+  transition: border 0.1s ease-out;
+  font-size: clamp(0.875rem, -1.562rem + 13vw, 1.2rem);
+  font-weight: 700;
+
+  &:hover,
+  &:focus {
+    border-bottom: 0.0625rem dashed transparent;
+  }
+}

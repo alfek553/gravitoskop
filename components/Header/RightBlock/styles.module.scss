@@ -1,0 +1,25 @@
+@use '@styles/mixins';
+
+.nav,
+.navList,
+.listItem {
+  @include mixins.container;
+}
+
+.nav {
+  width: fit-content;
+}
+
+.navList {
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: fit-content;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1.25rem;
+}
+
+.listItem {
+  width: fit-content;
+}
