@@ -38,7 +38,10 @@ const PlotComponent = () => {
     
     // Функция для обновления данных на графике
     const updatePlot = () => {
-    fetch('https://xn--80auzl_xn--p1ai.regruproxy.ru/Holla/data_holla.txt')
+    fetch('https://xn--80auzl_xn--p1ai.regruproxy.ru/Holla/data_holla.txt',
+        {
+            mode: 'no-cors'
+          })
     .then((response) => response.text())
     .then((data) => {
     let lines = data.split('\n');
