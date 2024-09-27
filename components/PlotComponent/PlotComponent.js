@@ -38,7 +38,7 @@ const PlotComponent = () => {
     
     // Функция для обновления данных на графике
     const updatePlot = () => {
-    fetch('@/components/PlotComponent/data.txt')
+    fetch('@/public/data/data.txt')
     .then((response) => response.text())
     .then((data) => {
     let lines = data.split('\n');
