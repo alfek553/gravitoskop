@@ -1,7 +1,7 @@
 'use client';
 
 import styles from './styles.module.scss';
-
+import PlotComponent from '../PlotComponent/PlotComponent';
 
 /**
  * Компонент `MainContent` отображает 
@@ -9,11 +9,11 @@ import styles from './styles.module.scss';
 const MainContent = () => {
 
 
-  return (
-    <div className={styles.container}>
-
-    </div>
-  );
+    return (
+        <div className={styles.container}>
+            <PlotComponent />
+        </div>
+    );
 };
 
 
