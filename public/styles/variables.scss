@@ -1,0 +1,18 @@
+//colors
+$colorYellow: #e7c053;
+$colorDarkGreen: #577e54;
+$colorMediumGreen: #0d8c70;
+$colorWhite: #ffffff;
+$colorAntiquewhite: #faebd7;
+$colorRed: #9d0000;
+$colorBlack: #000000;
+
+:export {
+  colorBlack: $colorBlack;
+  colorWhite: $colorWhite;
+  colorYellow: $colorYellow;
+  colorAntiquewhite: $colorAntiquewhite;
+  colorRed: $colorRed;
+  colorDarkGreen: $colorDarkGreen;
+  colorMediumGreen: $colorMediumGreen;
+}
