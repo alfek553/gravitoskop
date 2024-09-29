@@ -1,25 +1,19 @@
 'use client';
 // components/PlotComponent.js
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 const PlotComponent = () => {
-    const [plotlyLoaded, setPlotlyLoaded] = useState(false);
-
     useEffect(() => {
+        // Проверяем, загружен ли уже Plotly
         const loadPlotly = () => {
-            // Проверяем, не загружен ли Plotly уже
             if (!window.Plotly) {
                 const script = document.createElement('script');
                 script.src = 'https://cdn.plot.ly/plotly-latest.min.js';
                 script.async = true;
-                script.onload = () => {
-                    setPlotlyLoaded(true); // Устанавливаем флаг после загрузки Plotly
-                    initializePlot();
-                };
+                script.onload = initializePlot; // Инициализация графика после загрузки скрипта
                 document.body.appendChild(script);
             } else {
-                setPlotlyLoaded(true); // Если Plotly уже загружен, устанавливаем флаг
-                initializePlot();
+                initializePlot(); // Если Plotly уже загружен, просто инициализируем график
             }
         };
 
@@ -49,7 +43,6 @@ const PlotComponent = () => {
 
             // Функция для обновления данных на графике
             const updatePlot = () => {
-                console.log("запрос")
                 fetch("/api/proxy")
                     .then((response) => response.text())
                     .then((data) => {
@@ -79,9 +72,8 @@ const PlotComponent = () => {
             return () => clearInterval(intervalId);
         };
 
-        // Загружаем Plotly и инициализируем график
         loadPlotly();
-    }, []);
+    }, []); // Пустой массив зависимостей, чтобы useEffect сработал только при монтировании
 
     return <div id="plot" style={{ width: '100%', height: '100%' }} />;
 };
