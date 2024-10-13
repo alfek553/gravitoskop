@@ -15,7 +15,7 @@ function RightBlock() {
           <NavLink text="Contact Us" link="contact-us" />
         </li>
         <li className={styles.listItem}>
-          <NavLink text="Game" link="/" />
+          <NavLink text="График" link="/charts" />
         </li>
       </ul>
     </nav>

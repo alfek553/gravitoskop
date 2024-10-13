@@ -1,81 +1,64 @@
 'use client';
-// components/PlotComponent.js
-import { useEffect } from 'react';
+import dynamic from 'next/dynamic';
+import { useState, useEffect } from 'react';
 
-const PlotComponent = () => {
-    useEffect(() => {
-        // Проверяем, загружен ли уже Plotly
-        const loadPlotly = () => {
-            if (!window.Plotly) {
-                const script = document.createElement('script');
-                script.src = 'https://cdn.plot.ly/plotly-latest.min.js';
-                script.async = true;
-                script.onload = initializePlot; // Инициализация графика после загрузки скрипта
-                document.body.appendChild(script);
-            } else {
-                initializePlot(); // Если Plotly уже загружен, просто инициализируем график
-            }
-        };
+// Динамический импорт react-plotly.js с отключенным серверным рендерингом
+const Plot = dynamic(() => import('react-plotly.js'), { ssr: false });
 
-        const initializePlot = () => {
-            let trace = {
-                x: [],
-                y: [],
-                line: { color: '#1f77b4' },
-                mode: 'lines+markers',
-                type: 'scatter',
-            };
+const NewPlot = () => {
+  const [data, setData] = useState([]);
+  
+  // Функция для получения данных с API и обновления графика
+  const updatePlot = () => {
+    fetch("/api/proxy")
+      .then((response) => response.text())
+      .then((data) => {
+        let lines = data.split('\n');
+        
+        const lastNLines = lines.slice(Math.max(lines.length - 10000, 0));
 
-            let layout = {
-                title: 'Показания маятника Ярковского',
-                xaxis: {
-                    range: ['2023-03-27 14:00:59', '2024-03-27 14:00:59'],
-                    title: 'Время',
-                },
-                yaxis: {
-                    range: [300, 1500],
-                    title: 'Напряжение',
-                },
-            };
+        const formattedData = lastNLines.map((line) => {
+          const values = line.split(',');
+          return { time: values[0], voltage: parseFloat(values[1]) };
+        });
 
-            // Создаем начальный график
-            Plotly.newPlot('plot', [trace], layout);
+        setData(formattedData);
+      })
+      .catch((error) => console.error('Ошибка при обновлении графика:', error));
+  };
 
-            // Функция для обновления данных на графике
-            const updatePlot = () => {
-                fetch("/api/proxy")
-                    .then((response) => response.text())
-                    .then((data) => {
-                        let lines = data.split('\n');
+  useEffect(() => {
+    updatePlot();
+    const intervalId = setInterval(updatePlot, 10000);
+    return () => clearInterval(intervalId);
+  }, []);
 
-                        // Выбираем последние 100 строк (если строк меньше, то берем все)
-                        const lastNLines = lines.slice(Math.max(lines.length - 10000, 0));
-
-                        let x = [], y = [];
-                        for (let i = 0; i < lastNLines.length; i++) {
-                            let values = lastNLines[i].split(',');
-                            x.push(values[0]); // Значения для оси X
-                            y.push(values[1]); // Значения для оси Y
-                        }
-
-                        Plotly.update('plot', {
-                            x: [x],
-                            y: [y],
-                        });
-                    });
-            };
-
-            // Обновляем график каждые 10 секунд
-            const intervalId = setInterval(updatePlot, 10000);
-
-            // Очищаем интервал при размонтировании компонента
-            return () => clearInterval(intervalId);
-        };
-
-        loadPlotly();
-    }, []); // Пустой массив зависимостей, чтобы useEffect сработал только при монтировании
-
-    return <div id="plot" style={{ width: '100%', height: '100%' }} />;
+  return (
+    <Plot
+      data={[
+        {
+          x: data.map((item) => item.time),
+          y: data.map((item) => item.voltage),
+          type: 'scatter',
+          mode: 'lines+markers',
+          marker: { color: 'blue' },
+        },
+      ]}
+      layout={{
+        title: 'Показания маятника Ярковского',
+        xaxis: { title: 'Время' },
+        yaxis: { title: 'Напряжение' },
+        autosize: true,
+      }}
+      useResizeHandler={true}
+      style={{ width: '100%', height: '100%' }}
+      config={{
+        responsive: true,
+        displayModeBar: true, // Показывает панель инструментов
+        modeBarButtonsToAdd: ['zoom2d', 'pan2d', 'resetScale2d', 'autoScale2d'],
+      }}
+    />
+  );
 };
 
-export default PlotComponent;
+export default NewPlot;

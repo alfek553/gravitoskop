@@ -14,13 +14,13 @@ function Logo() {
         className={styles.link}
       >
         <Image
-          src="/kraisoft-logo.svg"
-          alt="kraisoft.com logo"
+          src="/tsu-logo.jpg"
+          alt="tsu logo"
           width={23}
           height={23}
         />
         <span className={styles.logoText}>
-          Test-<span className={styles.redText}>Task</span>
+         Гравитоскоп Ярковского
         </span>
       </Link>
     </div>

@@ -1,0 +1,13 @@
+@use '@styles/mixins';
+@use '@styles/variables';
+
+.container {
+  @include mixins.container;
+  align-items: center;
+  flex-direction: row;
+}
+
+.container {
+margin-top: 100px;
+
+}
