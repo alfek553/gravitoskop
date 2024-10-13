@@ -5,7 +5,7 @@ import { useState, useEffect, useRef } from 'react';
 // Динамический импорт react-plotly.js с отключенным серверным рендерингом
 const Plot = dynamic(() => import('react-plotly.js'), { ssr: false });
 
-const PlotComponent = () => {
+const NewPlot = () => {
   const [data, setData] = useState([]);  // Состояние для данных
   const [layout, setLayout] = useState({
     title: 'Показания маятника Ярковского',
@@ -96,4 +96,4 @@ const PlotComponent = () => {
   );
 };
 
-export default PlotComponent;
+export default NewPlot;
