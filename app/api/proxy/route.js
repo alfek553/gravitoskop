@@ -3,7 +3,7 @@ export async function GET(req) {
   try {
     const url = new URL(`http://xn--80auzl.xn--p1ai/Holla/data_holla.txt?timestamp=${Date.now()}`);
 
-    const response = await fetch(url);
+    const response = await fetch(url, { cache: 'no-store' });
 
     if (!response.ok) {
       throw new Error(`Network response was not ok: ${response.statusText}`);
