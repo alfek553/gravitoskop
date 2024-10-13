@@ -1,7 +1,8 @@
 // app/api/proxy/route.js
 export async function GET(req) {
   try {
-    const url = new URL('http://xn--80auzl.xn--p1ai/Holla/data_holla.txt');
+    const url = new URL(`http://xn--80auzl.xn--p1ai/Holla/data_holla.txt?timestamp=${Date.now()}`);
+
     const response = await fetch(url);
 
     if (!response.ok) {
