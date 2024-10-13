@@ -12,10 +12,10 @@ function RightBlock() {
         className={styles.navList}
       >
         <li className={styles.listItem}>
-          <NavLink text="Contact Us" link="contact-us" />
+          <NavLink text="График конденсатор" link="chart-capacitor" />
         </li>
         <li className={styles.listItem}>
-          <NavLink text="График" link="/charts" />
+          <NavLink text="График Холла" link="chart-holla" />
         </li>
       </ul>
     </nav>

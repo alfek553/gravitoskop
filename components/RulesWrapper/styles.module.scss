@@ -1,0 +1,77 @@
+@use '@styles/mixins';
+@use '@styles/variables';
+
+.container,
+.section,
+.textContainer,
+.textContent,
+.linksContainer {
+  @include mixins.container;
+}
+
+.container {
+  width: 100%;
+  min-height: calc(100vh - 34px);
+  background-color: variables.$colorYellow ;
+  border: solid 1px #000111;
+  padding: 0 1rem;
+  flex-grow: 1;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section {
+  align-items: center;
+}
+
+.title {
+  color: variables.$colorDarkGreen;
+  text-transform: uppercase;
+  font-size: 2rem;
+  line-height: 1.5;
+  font-weight: bold;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.textContainer {
+  max-width: 60rem;
+  gap: 2rem;
+}
+
+.textContent {
+  font-size: 1rem;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+  max-width: 60rem;
+  padding: 0;
+  margin: 0;
+}
+
+
+.linksContainer {
+  justify-content: center;
+  flex-direction: row;
+  margin-bottom: 50px;
+}
+
+.link {
+  font-size: 1.3rem;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+  padding: 0;
+  margin: 10px 0 0;
+  color: variables.$colorDarkGreen;
+  border-bottom: 0.0625rem dashed variables.$colorDarkGreen;
+  transition: border 0.1s ease-out;
+
+  &:hover {
+    color: red;
+    border-bottom: 0.0625rem dashed transparent;
+  }
+
+  &:focus {
+    border-bottom: 0.0625rem dashed transparent;
+    color: #890b0b;
+  }
+}

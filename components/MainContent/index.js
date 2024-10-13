@@ -13,7 +13,7 @@ const MainContent = () => {
     return (
         <div className={styles.container}>
             {/* <PlotComponent /> */}
-            <NewPlot/>
+            {/* <NewPlot/> */}
         </div>
     );
 };
