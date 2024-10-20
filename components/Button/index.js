@@ -1,49 +1,47 @@
 'use client';
-import { useState } from 'react';
 import styles from './styles.module.scss';
 
 /**
- * Компонент `ButtonDelay` отображает поле ввода задержки с кнопкой для отправки данных на сервер.
+ * Компонент `Button` отображает кнопку для отправки данных на сервер.
  */
-const Button = ({text,url,parametr,urlParametr}) => {
+const Button = ({ text, url, parametr, urlParametr }) => {
 
   // Функция обработки отправки данных
-  const handleFormSubmit = async (url, parametr,urlParametr) => {
+  const handleFormSubmit = () => {
     if (!parametr) {
       return;
     }
-  
+
     const dataToSend = `${urlParametr}=${parametr}`; // Формируем данные для отправки
     console.log('Отправляем:', dataToSend);
-  
-    try {
-      // Отправляем POST запрос с данными
-      const response = await fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: dataToSend,
-      });
-  
+
+    // Отправляем POST запрос с данными
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: dataToSend,
+    })
+    .then(response => {
       if (response.ok) {
         console.log('Данные успешно отправлены');
       } else {
         console.error('Ошибка при отправке данных:', response.statusText);
       }
-    } catch (error) {
+    })
+    .catch(error => {
       console.error('Ошибка при отправке запроса:', error);
-    }
+    });
   };
-  
 
   return (
     <button 
-    className={styles.submit} 
-    onClick={() => handleFormSubmit(url, parametr,urlParametr)} // Передаем url и delay как аргументы
-  >
-    {text}
-  </button>
+      className={styles.submit} 
+      onClick={handleFormSubmit} // Вызываем функцию обработки
+    >
+      {text}
+    </button>
   );
 };
 

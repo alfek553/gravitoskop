@@ -1,5 +1,4 @@
 import ButtonDelay from "../ButtonDelay";
-import DateRangePicker from "../ChartWithDateRange/DateRangePicker";
 import DownloadButton from "../DownloadButton";
 import NewPlot from "../NewPlot";
 import StopMeasurement from "../StopMeasurement";

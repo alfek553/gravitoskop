@@ -4,50 +4,47 @@ import styles from './styles.module.scss';
 
 const StopMeasurement = () => {
     const [isWork, setIsWork] = useState(null);  // Состояние для хранения текущего статуса измерений
-    const url = new URL( 'http://xn--80auzl.xn--p1ai/EnableIndicator/getEnable.php');  // Ваш URL
+    const url = new URL('http://xn--80auzl.xn--p1ai/EnableIndicator/getEnable.php');  // Ваш URL
     const testurl = '/controlFreq.php';  // Ваш URL
     const urlParametr = "enable";
 
     // Загрузка начального состояния с сервера при загрузке страницы
     useEffect(() => {
-        const fetchInitialStatus = async () => {
-            try {
-                const response = await fetch("/api/enable"); // Замените на реальный URL к файлу
-                const status = await response.text();
+        fetch("/api/enable") // Замените на реальный URL к файлу
+            .then(response => response.text())
+            .then(status => {
                 setIsWork(status.trim() === "true");
-            } catch (error) {
+            })
+            .catch(error => {
                 console.error('Ошибка при получении начального состояния:', error);
-            }
-        };
-
-        fetchInitialStatus();
+            });
     }, []);
 
     // Функция обработки отправки данных
-    const handleFormSubmit = async () => {
+    const handleFormSubmit = () => {
         const newStatus = !isWork;  // Переключаем состояние
         const dataToSend = `${urlParametr}=${newStatus ? "true" : "false"}`;  // Формируем данные для отправки
         console.log('Отправляем:', dataToSend);
 
-        try {
-            // Отправляем POST запрос с данными
-            const response = await fetch(testurl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: dataToSend,
-            });
-
+        // Отправляем POST запрос с данными
+        fetch(testurl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: dataToSend,
+        })
+        .then(response => {
             if (response.ok) {
                 console.log('Данные успешно отправлены');
                 setIsWork(newStatus);  // Обновляем состояние на основе отправленных данных
             } else {
                 console.error('Ошибка при отправке данных:', response.statusText);
             }
-        } catch (error) {
+        })
+        .catch(error => {
             console.error('Ошибка при отправке запроса:', error);
-        }
+        });
     };
 
     // Пока статус не загружен, отображаем загрузку
