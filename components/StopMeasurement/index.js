@@ -49,7 +49,7 @@ const StopMeasurement = () => {
 
     // Пока статус не загружен, отображаем загрузку
     if (isWork === null) {
-        return <div>Загрузка...</div>;
+        return <div  className={styles.load}>Загрузка...</div>;
     }
 
     return (

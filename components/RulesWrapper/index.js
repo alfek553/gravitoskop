@@ -9,7 +9,7 @@ const RulesWrapper = () => {
   return (
     <div className={styles.container}>
       <section className={styles.section}>
-        <h1 className={styles.title}>Как играть в тестовое задание</h1>
+        <h1 className={styles.title}>Как управлять графиками</h1>
         <div className={styles.textContainer}>
           <p className={styles.textContent}>    Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati voluptates
             nisi voluptatum quam voluptatem laboriosam? Commodi nam aut velit fuga, quis
@@ -60,7 +60,7 @@ const RulesWrapper = () => {
           href={"/"}
           className={styles.link}
         >
-          Играть
+          На главную
         </Link>
       </div>
     </div>
