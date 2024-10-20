@@ -1,0 +1,48 @@
+@use '@styles/variables';
+
+.mainWrapper {
+    background-color: variables.$colorYellow ;
+    min-height: 90vh;
+  }
+
+  .mainContainer {
+    display: flex;
+    flex-direction: column; // Вертикально располагаем элементы
+    // height: 100vh; // Высота контейнера на весь экран
+  }
+  
+  .plotWrapper {
+    // flex-grow: 1; // График будет занимать оставшееся пространство
+    min-height: 90%;
+    height: 90%; // Ограничим высоту графика
+    margin: 15px 10px 0 10px;
+  }
+  
+  .buttonWrapper {
+    height: 10%; // Задаем фиксированную высоту для кнопки
+    display: flex;
+    align-items: center; // Вертикальное выравнивание кнопки
+    justify-content: center; // Горизонтальное выравнивание кнопки
+  }
+  
+  .container {
+    max-width: 900px;
+    border: solid 1px #000111;
+    padding: 0 1rem;
+    flex-grow: 1;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 50px;
+  }
+  
+  .block {
+    display: flex;
+  }
+
+  .blockText {
+    font-size: medium;
+  }
+
+.image {
+
+  }

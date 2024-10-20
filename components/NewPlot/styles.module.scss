@@ -5,9 +5,7 @@
   @include mixins.container;
   align-items: center;
   flex-direction: row;
-}
-
-.container {
-margin-top: 100px;
-
+  height: 500px;
+  width: 100%;
+  // margin: 0;
 }

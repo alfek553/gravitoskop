@@ -1,7 +1,7 @@
 'use client';
 
-// import styles from './styles.module.scss';
-import NewPlot from "@/components/NewPlot";
+import CapacitorPageContent from "@/components/CapacitorPageContent";
+
 
 /**
  * 
@@ -11,7 +11,7 @@ export default async function ChartCapacitor() {
 
     return (
         // <div className={styles.container}>
-            <NewPlot/>
+            <CapacitorPageContent/>
         // </div>
     );
 };

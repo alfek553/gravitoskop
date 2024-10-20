@@ -1,7 +1,7 @@
 'use client';
 import dynamic from 'next/dynamic';
 import { useState, useEffect, useRef } from 'react';
-
+import styles from './styles.module.scss';
 // Динамический импорт react-plotly.js с отключенным серверным рендерингом
 const Plot = dynamic(() => import('react-plotly.js'), { ssr: false });
 
@@ -73,6 +73,7 @@ const NewPlot = () => {
   }, []);
 
   return (
+    <div className={styles.container}> 
     <Plot
       ref={plotRef}  // Ссылка на график
       data={[
@@ -86,13 +87,14 @@ const NewPlot = () => {
       ]}
       layout={layout}
       useResizeHandler={true}
-      style={{ width: '100%', height: '100%' }}
+      style={{ width: '100%', height: '500px' }}s
       config={{
         responsive: true,
         displayModeBar: true,  // Панель инструментов
         modeBarButtonsToAdd: ['zoom2d', 'pan2d', 'resetScale2d', 'autoScale2d'],
       }}
     />
+        </div>
   );
 };
 
