@@ -23,5 +23,17 @@
   }
 
 .image {
-
+  margin:10px;
+  border-radius: 10px;
   }
+  @media (max-width:643px) {
+    .block {
+        flex-wrap: wrap;
+    }
+    .image {
+      display: flex;
+      align-items: center;
+      margin: 0 auto;
+      margin-bottom: 10px;
+    }
+}
