@@ -6,8 +6,8 @@ import CryptoJS from 'crypto-js';
 
 const StopMeasurement = () => {
     const [isWork, setIsWork] = useState(null);  // Состояние для хранения текущего статуса измерений
-    const url = new URL('http://xn--80auzl.xn--p1ai/EnableIndicator/getEnable.php');  // Ваш URL
-    const testurl = '/controlFreq.php';  // Ваш URL
+    const url = new URL('http://xn--80auzl.xn--p1ai/Holla/EnableIndicator/postEnable.php');  // Ваш URL
+
     const urlParametr = "enable";
 
     // Загрузка начального состояния с сервера при загрузке страницы
@@ -27,29 +27,30 @@ const StopMeasurement = () => {
         const newStatus = !isWork;  // Переключаем состояние
         const dataToSend = `${urlParametr}=${newStatus ? "true" : "false"}`;  // Формируем данные для отправки
         console.log('Отправляем:', dataToSend);
-        result = prompt("Введите пароль");
+        let result = prompt("Введите пароль");
         console.log(result);
         result = CryptoJS.SHA256(result);
         result = result.toString(CryptoJS.enc.Base64)
         if (result === "T9iC6Q9aZFto3C9Fqbd6xi5oWF7MyKLeWzNKOEIFzp4=") {
             // Отправляем POST запрос с данными
-            fetch(testurl, {
+            fetch("/api/enable", {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
+                  'Content-Type': 'application/json',
                 },
-                body: dataToSend,
-            })
-                .then(response => {
-                    if (response.ok) {
-                        console.log('Данные успешно отправлены');
-                        setIsWork(newStatus);  // Обновляем состояние на основе отправленных данных
-                    } else {
-                        console.error('Ошибка при отправке данных:', response.statusText);
-                    }
+                body: JSON.stringify({
+                  url: url, // URL стороннего сервера
+                  dataToSend: dataToSend,       // Параметр
+                }),
+              })
+                .then(response => response.text())
+                .then(data => {
+                  console.log('Ответ:', data);
+                  alert("Установлено");
                 })
                 .catch(error => {
-                    console.error('Ошибка при отправке запроса:', error);
+                  console.error('Ошибка:', error);
+                  alert("Ошибка установки");
                 });
         } else {
             alert("Неверный пароль");

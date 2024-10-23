@@ -22,23 +22,23 @@ const Button = ({ text, url, parametr, urlParametr }) => {
       console.log('Отправляем:', dataToSend);
 
       // Отправляем POST запрос с данными
-      fetch(url, {
+      fetch('/api/changeDelayorFreq', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
+          'Content-Type': 'application/json',
         },
-        body: dataToSend,
+        body: JSON.stringify({
+          url: url, // URL стороннего сервера
+          dataToSend: dataToSend,       // Параметр
+        }),
       })
-        .then(response => {
-          if (response.ok) {
-            console.log('Данные успешно отправлены');
-            alert("Установленно");
-          } else {
-            console.error('Ошибка при отправке данных:', response.statusText);
-          }
+        .then(response => response.text())
+        .then(data => {
+          console.log('Ответ:', data);
+          alert("Установлено");
         })
         .catch(error => {
-          console.error('Ошибка при отправке запроса:', error);
+          console.error('Ошибка:', error);
           alert("Ошибка установки");
         });
     }
