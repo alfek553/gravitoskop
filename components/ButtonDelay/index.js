@@ -10,7 +10,7 @@ import Input from '../Input';
 const ButtonDelay = () => {
   const [delay, setDelay] = useState(''); // Состояние для задержки
 
-  const url = '/controlFreq.php'; // Замените на ваш URL
+  const url = new URL(`http://xn--80auzl.xn--p1ai/Holla/TestcontrolDelayAndFreq.php`);  // Ваш URL
 
   return (
     <div className={styles.containerInput}>

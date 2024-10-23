@@ -1,6 +1,8 @@
 "use client";
 import { useState, useEffect } from 'react';
 import styles from './styles.module.scss';
+import CryptoJS from 'crypto-js';
+
 
 const StopMeasurement = () => {
     const [isWork, setIsWork] = useState(null);  // Состояние для хранения текущего статуса измерений
@@ -25,31 +27,38 @@ const StopMeasurement = () => {
         const newStatus = !isWork;  // Переключаем состояние
         const dataToSend = `${urlParametr}=${newStatus ? "true" : "false"}`;  // Формируем данные для отправки
         console.log('Отправляем:', dataToSend);
-
-        // Отправляем POST запрос с данными
-        fetch(testurl, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: dataToSend,
-        })
-        .then(response => {
-            if (response.ok) {
-                console.log('Данные успешно отправлены');
-                setIsWork(newStatus);  // Обновляем состояние на основе отправленных данных
-            } else {
-                console.error('Ошибка при отправке данных:', response.statusText);
-            }
-        })
-        .catch(error => {
-            console.error('Ошибка при отправке запроса:', error);
-        });
+        result = prompt("Введите пароль");
+        console.log(result);
+        result = CryptoJS.SHA256(result);
+        result = result.toString(CryptoJS.enc.Base64)
+        if (result === "T9iC6Q9aZFto3C9Fqbd6xi5oWF7MyKLeWzNKOEIFzp4=") {
+            // Отправляем POST запрос с данными
+            fetch(testurl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: dataToSend,
+            })
+                .then(response => {
+                    if (response.ok) {
+                        console.log('Данные успешно отправлены');
+                        setIsWork(newStatus);  // Обновляем состояние на основе отправленных данных
+                    } else {
+                        console.error('Ошибка при отправке данных:', response.statusText);
+                    }
+                })
+                .catch(error => {
+                    console.error('Ошибка при отправке запроса:', error);
+                });
+        } else {
+            alert("Неверный пароль");
+        }
     };
 
     // Пока статус не загружен, отображаем загрузку
     if (isWork === null) {
-        return <div  className={styles.load}>Загрузка...</div>;
+        return <div className={styles.load}>Загрузка...</div>;
     }
 
     return (
