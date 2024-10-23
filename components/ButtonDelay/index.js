@@ -25,6 +25,7 @@ const ButtonDelay = () => {
         parametr={delay}
         urlParametr="delay"
         url={url}
+        setParametr={setDelay}
       />
     </div>
   );

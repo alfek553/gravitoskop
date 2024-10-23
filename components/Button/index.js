@@ -5,7 +5,7 @@ import CryptoJS from 'crypto-js';
 /**
  * Компонент `Button` отображает кнопку для отправки данных на сервер.
  */
-const Button = ({ text, url, parametr, urlParametr }) => {
+const Button = ({ text, url, parametr, urlParametr, setParametr }) => {
 
   // Функция обработки отправки данных
   const handleFormSubmit = () => {
@@ -35,7 +35,9 @@ const Button = ({ text, url, parametr, urlParametr }) => {
         .then(response => response.text())
         .then(data => {
           console.log('Ответ:', data);
+          setParametr(0);
           alert("Установлено");
+
         })
         .catch(error => {
           console.error('Ошибка:', error);

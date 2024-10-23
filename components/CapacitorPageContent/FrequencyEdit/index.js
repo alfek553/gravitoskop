@@ -10,7 +10,7 @@ import Input from '@/components/Input';
 const FrequencyEdit = () => {
   const [frequency, setFrequency] = useState(''); // Состояние для задержки
 
-  const url = '/controlFreq.php'; // Замените на ваш URL
+  const url = new URL(`http://xn--80auzl.xn--p1ai/Capacitor/TestcontrolDelayAndFreq.php`);
 
   return (
     <div className={styles.containerInput}>
@@ -25,6 +25,7 @@ const FrequencyEdit = () => {
         parametr={frequency}
         urlParametr="freq"
         url={url}
+        setParametr={setFrequency}
       />
     </div>
   );
