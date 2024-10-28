@@ -5,7 +5,7 @@ import styles from './styles.module.scss';
 // Динамический импорт react-plotly.js с отключенным серверным рендерингом
 const Plot = dynamic(() => import('react-plotly.js'), { ssr: false });
 
-const NewPlot = () => {
+const NewPlot = ({apiUrl, isRealtime }) => {
   const [data, setData] = useState([]);  // Состояние для данных
   const [layout, setLayout] = useState({
     title: 'Показания маятника Ярковского',
@@ -18,7 +18,7 @@ const NewPlot = () => {
 
   // Функция для получения данных с API и обновления графика
   const updatePlot = () => {
-    fetch("/api/proxy")
+    fetch(apiUrl)
       .then((response) => response.text())
       .then((data) => {
         let lines = data.split('\n');
@@ -39,9 +39,11 @@ const NewPlot = () => {
 
   useEffect(() => {
     updatePlot();
-    const intervalId = setInterval(updatePlot, 10000);  // Обновляем каждые 10 секунд
-    return () => clearInterval(intervalId);
-  }, []);
+    if (isRealtime) {
+      const intervalId = setInterval(updatePlot, 10000); // Обновляем каждые 10 секунд
+      return () => clearInterval(intervalId);
+    }
+  }, [isRealtime, apiUrl]); // Зависимость от режима и URL
 
   useEffect(() => {
     // Сохранение текущего масштаба

@@ -1,0 +1,133 @@
+@use '@styles/mixins';
+@use '@styles/variables';
+
+.container,
+.textContainer,
+.textContent,
+.textareaContainer,
+.buttonContainer {
+    @include mixins.container;
+}
+
+.mainWrapper {
+    background-color: variables.$colorYellow ;
+}
+
+.container {
+    max-width: 700px;
+    border: solid 1px #000111;
+    padding: 0 1rem;
+    flex-grow: 1;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.textContent {
+    font-size: 1rem;
+    line-height: 1.5;
+    letter-spacing: 0.05em;
+    max-width: 60rem;
+    padding: 0;
+    margin: 0;
+}
+
+.containerInput {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    margin-top: 10px;
+
+}
+
+.input {
+    border: 1px solid #DADADA;
+    border-radius: 50px;
+    box-sizing: border-box;
+    padding: 16px 28px;
+    width: calc((100% - 10px)/2);
+    height: 60px;
+}
+
+.indicator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 230px;
+    border-radius: 50px;
+    margin-bottom: 9px;
+}
+
+.submit {
+    min-width: 230px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 50px;
+    margin-bottom: 9px;
+    cursor: pointer;
+}
+
+.noActive {
+background-color: red;
+ color: '#fff'
+}
+
+.active {
+background-color: green;
+ color: '#000'
+}
+
+@media (max-width:643px) {
+    .input {
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+
+
+.buttonContainer {
+    gap: 5px;
+    flex-direction: row;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+}
+
+
+
+.load {
+    // margin: 0 auto;
+    margin-left: 100px;
+    min-width: 230px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 9px;
+}
+
+.input:focus {
+    outline: none;
+    border-color: #71A7E2;
+    background-color: rgba(113, 167, 226, 0.2);
+}
+
+.input:hover {
+    border-color: #71A7E2;
+}
+
+.input:active {
+    border-color: #0E3B6C;
+}
+
+.submit:hover {
+    background-color: variables.$colorMediumGreen;
+
+}
+
+.submit:active {
+    background-color: #001a00;
+    color:white;
+}
