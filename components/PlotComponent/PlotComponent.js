@@ -5,18 +5,18 @@ import { useState, useEffect } from 'react';
 // Динамический импорт react-plotly.js с отключенным серверным рендерингом
 const Plot = dynamic(() => import('react-plotly.js'), { ssr: false });
 
-const NewPlot = () => {
+const PlotComponent = () => {
   const [data, setData] = useState([]);
   
   // Функция для получения данных с API и обновления графика
   const updatePlot = () => {
-    fetch("/api/proxy")
+    fetch('/data/processed_data.txt')
       .then((response) => response.text())
       .then((data) => {
         let lines = data.split('\n');
         
-        const lastNLines = lines.slice(Math.max(lines.length - 10000, 0));
-
+        // const lastNLines = lines.slice(Math.max(lines.length - 120000, 60000));
+        const lastNLines = lines.slice(0, 60000);
         const formattedData = lastNLines.map((line) => {
           const values = line.split(',');
           return { time: values[0], voltage: parseFloat(values[1]) };
@@ -61,4 +61,4 @@ const NewPlot = () => {
   );
 };
 
-export default NewPlot;
+export default PlotComponent;
