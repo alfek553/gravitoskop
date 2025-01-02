@@ -1,54 +1,8 @@
 @use '@styles/mixins';
 @use '@styles/variables';
 
-.container,
-.textContainer,
-.textContent,
-.textareaContainer,
 .buttonContainer {
     @include mixins.container;
-}
-
-.mainWrapper {
-    background-color: variables.$colorYellow ;
-}
-
-.container {
-    max-width: 700px;
-    border: solid 1px #000111;
-    padding: 0 1rem;
-    flex-grow: 1;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.title {
-    color: variables.$colorDarkGreen;
-    text-transform: uppercase;
-    font-size: 2rem;
-    line-height: 1.5;
-    font-weight: bold;
-    text-align: center;
-    margin: 10px 0;
-}
-
-.textContainer {
-    max-width: 60rem;
-    gap: 2rem;
-}
-
-.textContent {
-    font-size: 1rem;
-    line-height: 1.5;
-    letter-spacing: 0.05em;
-    max-width: 60rem;
-    padding: 0;
-    margin: 0;
-}
-
-.form {
-    display: flex;
-    flex-direction: column;
 }
 
 .containerInput {
@@ -78,25 +32,6 @@
     }
 }
 
-.textareaContainer {
-    margin-bottom: 1rem;
-}
-
-.textarea {
-    height: 150px;
-    width: 90%;
-    margin: 0 auto;
-}
-
-.buttonContainer {
-    gap: 5px;
-    flex-direction: row;
-    align-items: flex-end;
-    flex-wrap: wrap;
-    margin-bottom: 1rem;
-    margin-left: 1rem;
-}
-
 .submit {
     min-width: 230px;
     padding-top: 20px;
@@ -122,55 +57,8 @@
     min-width: 230px;
     border-radius: 50px;
     margin-bottom: 9px;
-}
-
-.check {
-    font-size: 12px;
-    line-height: 16px;
-    color: #787878;
-
-}
-
-.check input {
-    margin-right: 8px;
-}
-
-.check a {
-    color: #317289;
-    border-bottom: 1px solid #317289;
-}
-
-.alertForm {
-    color: variables.$colorMediumGreen;
-    padding-bottom: 1rem;
-}
-
-.input:focus {
-    outline: none;
-    border-color: #71A7E2;
-    background-color: rgba(113, 167, 226, 0.2);
-}
-
-.input:hover {
-    border-color: #71A7E2;
-}
-
-.input:active {
-    border-color: #0E3B6C;
-}
-
-.textarea:focus {
-    outline: none;
-    border-color: #71A7E2;
-    background-color: rgba(113, 167, 226, 0.2);
-}
-
-.textarea:hover {
-    border-color: #71A7E2;
-}
-
-.textarea:active {
-    border-color: #0E3B6C;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .submit:hover {
