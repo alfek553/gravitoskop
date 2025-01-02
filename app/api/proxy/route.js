@@ -3,16 +3,26 @@ export async function GET(req) {
   try {
     const { searchParams } = new URL(req.url);
     const source = searchParams.get('source');
+    const startDate = searchParams.get('startDate');
+    const endDate = searchParams.get('endDate');
+    const availableDates = searchParams.get('availableDates');
     let url
     if (source === 'capacitor') {
-       url = new URL(`http://xn--80auzl.xn--p1ai/Capacitor/data.txt?timestamp=${Date.now()}`);
+      url = new URL(`http://xn--80auzl.xn--p1ai/Capacitor/data.txt?timestamp=${Date.now()}`);
     } else if (source === 'holla') {
-       url = new URL(`http://xn--80auzl.xn--p1ai/Holla/data_holla.txt?timestamp=${Date.now()}`);
+      if (availableDates) {
+        url = new URL(`http://xn--80auzl.xn--p1ai/Holla/responseData.php?availableDates=${encodeURIComponent(availableDates)}`);
+      } else if (startDate && endDate) {
+        console.log("sdgdsgdgs");
+        url = new URL(`http://xn--80auzl.xn--p1ai/Holla/responseData.php?startDate=${encodeURIComponent(startDate)}&endDate=${encodeURIComponent(endDate)}`);
+      }
+      else {
+        url = new URL(`http://xn--80auzl.xn--p1ai/Holla/responseData.php?timestamp=${Date.now()}`);
+      }
     } else {
-       url="";
+      url = "";
       return new Response('Bad Request', { status: 400 });
     }
-    // const url = new URL(`http://xn--80auzl.xn--p1ai/Holla/data_holla.txt?timestamp=${Date.now()}`);
 
     const response = await fetch(url, { cache: 'no-store' });
 

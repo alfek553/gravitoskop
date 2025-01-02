@@ -1,0 +1,52 @@
+@use '@styles/mixins';
+@use '@styles/variables';
+
+.buttonContainer {
+    @include mixins.container;
+}
+
+.calendar {
+    min-width: 230px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 50px;
+    margin-bottom: 9px;
+    cursor: pointer;
+}
+
+.containerInput {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    margin-top: 10px;
+
+}
+
+@media (max-width:643px) {
+    .input {
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+
+.submit {
+    min-width: 230px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 50px;
+    margin-bottom: 9px;
+    cursor: pointer;
+}
+
+.submit:hover {
+    background-color: variables.$colorMediumGreen;
+
+}
+
+.submit:active {
+    background-color: #001a00;
+    color:white;
+}

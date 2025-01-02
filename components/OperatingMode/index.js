@@ -1,14 +1,16 @@
 'use client';
-import { useState } from 'react';
 import styles from './styles.module.scss';
-
-const OperatingMode = ({ onModeChange }) => {
-  const [isRealtime, setIsRealtime] = useState(true); // Режим по умолчанию - реального времени
+/**
+ * Компонент `OperatingMode` отображает кнопки с режимом работы графика
+ */
+const OperatingMode = ({ isRealtime, onModeChange, onDateChange }) => {
 
   // Обработчик переключения режима
   const handleModeSwitch = (mode) => {
-    setIsRealtime(mode === 'realtime');
     onModeChange(mode === 'realtime'); // Передаем значение родительскому компоненту
+    if (mode === 'realtime') {
+      onDateChange(null, null); // Ощичаем календарь
+    }
   };
 
   return (
