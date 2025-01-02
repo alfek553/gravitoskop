@@ -23,8 +23,6 @@ const DateRangePicker = ({ onDateChange }) => {
     try {
       const response = await fetch( "/api/proxy?source=holla&availableDates=true"); // URL API, который возвращает массив дат
       const dates = await response.json(); // Ожидаем массив строк в формате YYYY-MM-DD
-      // const dates = ["2024-12-22","2024-12-23","2024-12-24"];
-      console.log("dates ",dates);
       const parsedDates = dates.map((date) => new Date(date)); // Преобразуем строки в объекты Date
       setAvailableDates(parsedDates);
     } catch (error) {

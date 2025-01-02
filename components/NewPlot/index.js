@@ -19,11 +19,9 @@ const NewPlot = ({apiUrl, isRealtime, dateRange }) => {
   // Функция для получения данных с API и обновления графика
   const updatePlot = () => {
     let url = apiUrl;
-    console.log('dateRange :', dateRange);
     if (dateRange && dateRange[0] && dateRange[1]) {
       url = `${apiUrl}&startDate=${dateRange[0]}&endDate=${dateRange[1]}`;
     }
-    console.log('Fetching data fro1m:', url);
     fetch(url)
       .then((response) => response.text())
       .then((data) => {

@@ -13,7 +13,6 @@ export async function GET(req) {
       if (availableDates) {
         url = new URL(`http://xn--80auzl.xn--p1ai/Holla/responseData.php?availableDates=${encodeURIComponent(availableDates)}`);
       } else if (startDate && endDate) {
-        console.log("sdgdsgdgs");
         url = new URL(`http://xn--80auzl.xn--p1ai/Holla/responseData.php?startDate=${encodeURIComponent(startDate)}&endDate=${encodeURIComponent(endDate)}`);
       }
       else {
