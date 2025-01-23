@@ -58,23 +58,23 @@ const RulesWrapper = () => {
           <p className={styles.textContent}>
             1. Возможность выбрать определенный диапозон дат
           </p>
-          <Image className={styles.image + " "+ styles.image_title}
+          {/* <Image className={styles.image + " "+ styles.image_title}
                             src={`/image/rules/datePicker1.jpg`}
                             width={300}
                             height={400}
                             fill={false}
                             alt='карточка4'
-                        />
+                        /> */}
                                   <p className={styles.textContent}>
             При этом список доступных дат будет отображаться зеленым
           </p>
-          <Image className={styles.image + " "+ styles.image_title}
+          {/* <Image className={styles.image + " "+ styles.image_title}
                             src={`/image/rules/datePicker2.jpg`}
                             width={300}
                             height={400}
                             fill={false}
                             alt='карточка3'
-                        />
+                        /> */}
           <p className={styles.textContent}>
             Для того чтобы вернуться к текущим измерением необходимо нажать на кнопку "Очистить даты"
           </p>
