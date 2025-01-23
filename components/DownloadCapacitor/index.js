@@ -4,13 +4,13 @@ import styles from './styles.module.scss';
 /**
  * Компонент `DownloadButton` отображает кнопку для скачивания данных с сервера.
  */
-const DownloadButton = () => {
+const DownloadCapacitor = () => {
   // Функция обработки отправки данных и скачивания файла
   const handleFormSubmit = (event) => {
     event.preventDefault(); // Предотвращаем перезагрузку страницы
 
     // Отправляем запрос на сервер для скачивания файла
-    fetch("/api/download")
+    fetch("/api/downloadCapacitor")
       .then((response) => {
         if (!response.ok) {
           throw new Error('Ошибка при скачивании файла: ' + response.statusText);
@@ -21,7 +21,7 @@ const DownloadButton = () => {
         const url = window.URL.createObjectURL(blob); // Создаем URL для файла
         const link = document.createElement('a'); // Создаем временную ссылку
         link.href = url;
-        link.setAttribute('download', 'data_holla.txt'); // Устанавливаем имя файла для скачивания
+        link.setAttribute('download', 'data.txt'); // Устанавливаем имя файла для скачивания
         document.body.appendChild(link);
         link.click(); // Симулируем клик по ссылке для скачивания
         link.parentNode.removeChild(link); // Удаляем ссылку после скачивания
@@ -44,4 +44,4 @@ const DownloadButton = () => {
   );
 };
 
-export default DownloadButton;
+export default DownloadCapacitor;

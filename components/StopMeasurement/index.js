@@ -4,7 +4,7 @@ import styles from './styles.module.scss';
 import CryptoJS from 'crypto-js';
 
 
-const StopMeasurement = () => {
+const StopMeasurement = (apiUrl) => {
     const [isWork, setIsWork] = useState(null);  // Состояние для хранения текущего статуса измерений
     const url = new URL('http://xn--80auzl.xn--p1ai/Holla/EnableIndicator/postEnable.php');  // Ваш URL
 

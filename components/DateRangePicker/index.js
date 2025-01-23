@@ -4,7 +4,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import styles from './styles.module.scss';
 
-const DateRangePicker = ({ onDateChange }) => {
+const DateRangePicker = ({ onDateChange, apiUrl }) => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [availableDates, setAvailableDates] = useState([]); // Даты, в которых есть данные
@@ -21,7 +21,7 @@ const DateRangePicker = ({ onDateChange }) => {
   // Функция для загрузки доступных дат
   const fetchAvailableDates = async () => {
     try {
-      const response = await fetch( "/api/proxy?source=holla&availableDates=true"); // URL API, который возвращает массив дат
+      const response = await fetch( `${apiUrl}&availableDates=true`); // URL API, который возвращает массив дат
       const dates = await response.json(); // Ожидаем массив строк в формате YYYY-MM-DD
       const parsedDates = dates.map((date) => new Date(date)); // Преобразуем строки в объекты Date
       setAvailableDates(parsedDates);

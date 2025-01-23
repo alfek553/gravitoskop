@@ -24,25 +24,3 @@
     align-items: center; // Вертикальное выравнивание кнопки
     justify-content: center; // Горизонтальное выравнивание кнопки
   }
-  
-  .container {
-    max-width: 900px;
-    border: solid 1px #000111;
-    padding: 0 1rem;
-    flex-grow: 1;
-    margin-left: auto;
-    margin-right: auto;
-    padding-bottom: 50px;
-  }
-  
-  .block {
-    display: flex;
-  }
-
-  .blockText {
-    font-size: medium;
-  }
-
-.image {
-
-  }

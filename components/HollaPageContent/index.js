@@ -28,13 +28,13 @@ const HollaPageContent = () => {
         <div className={styles.plotWrapper}>
           <NewPlot apiUrl={pageApiUrl} isRealtime={isRealtime} dateRange={dateRange} />
         </div>
-        <DateRangePicker onDateChange={handleDateChange} />
+        <DateRangePicker onDateChange={handleDateChange} pageApiUrl={pageApiUrl} />
         <OperatingMode isRealtime={isRealtime} onModeChange={setIsRealtime} onDateChange={handleDateChange} />
         <div className={styles.buttonWrapper}>
           <ButtonDelay />
         </div>
-        <StopMeasurement />
-        <DownloadButton />
+        <StopMeasurement apiUrl={pageApiUrl}/>
+        <DownloadButton apiUrl={pageApiUrl}/>
       </div>
     </div>
   );
