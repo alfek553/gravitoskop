@@ -17,7 +17,7 @@ const RulesWrapper = () => {
                             width={600}
                             height={200}
                             fill={false}
-                            alt='карточка'
+                            alt='карточка5'
                         />
           <p className={styles.textContent}>
             График имеет различные функции: 
@@ -63,7 +63,7 @@ const RulesWrapper = () => {
                             width={300}
                             height={400}
                             fill={false}
-                            alt='карточка'
+                            alt='карточка4'
                         />
                                   <p className={styles.textContent}>
             При этом список доступных дат будет отображаться зеленым
@@ -73,7 +73,7 @@ const RulesWrapper = () => {
                             width={300}
                             height={400}
                             fill={false}
-                            alt='карточка'
+                            alt='карточка3'
                         />
           <p className={styles.textContent}>
             Для того чтобы вернуться к текущим измерением необходимо нажать на кнопку "Очистить даты"
