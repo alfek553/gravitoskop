@@ -14,15 +14,15 @@ const RulesWrapper = () => {
       <section className={styles.section}>
         <h1 className={styles.title}>Как управлять графиками</h1>
         <div className={styles.textContainer}>
-        <Image className={styles.image + " "+ styles.image_chart}
-                            src={`/image/rules/work_with_chart.jpg`}
-                            width={600}
-                            height={200}
-                            fill={false}
-                            alt='карточка5'
-                        />
+          {/* <Image className={styles.image + " " + styles.image_chart}
+            src={`/image/rules/work_with_chart.jpg`}
+            width={600}
+            height={200}
+            fill={false}
+            alt='карточка5'
+          /> */}
           <p className={styles.textContent}>
-            График имеет различные функции: 
+            График имеет различные функции:
           </p>
           <p className={styles.textContent}>
             1. Скачать текущее изображение
@@ -55,28 +55,28 @@ const RulesWrapper = () => {
             10. переход на сайт библиотеки
           </p>
           <p className={styles.textContent}>
-            Панель для управления графиком включает:    
+            Панель для управления графиком включает:
           </p>
           <p className={styles.textContent}>
             1. Возможность выбрать определенный диапозон дат
           </p>
-          <Image className={styles.image + " "+ styles.image_title}
-                            src={`/image/rules/datePicker1.jpg`}
-                            width={300}
-                            height={400}
-                            fill={false}
-                            alt='карточка4'
-                        />
-                                  <p className={styles.textContent}>
+          {/* <Image className={styles.image + " " + styles.image_title}
+            src={`/image/rules/datePicker1.jpg`}
+            width={300}
+            height={400}
+            fill={false}
+            alt='карточка4'
+          /> */}
+          <p className={styles.textContent}>
             При этом список доступных дат будет отображаться зеленым
           </p>
-          <Image className={styles.image + " "+ styles.image_title}
-                            src={`/image/rules/datePicker2.jpg`}
-                            width={300}
-                            height={400}
-                            fill={false}
-                            alt='карточка3'
-                        />
+          {/* <Image className={styles.image + " " + styles.image_title}
+            src={`/image/rules/datePicker2.jpg`}
+            width={300}
+            height={400}
+            fill={false}
+            alt='карточка3'
+          /> */}
           <p className={styles.textContent}>
             Для того чтобы вернуться к текущим измерением необходимо нажать на кнопку "Очистить даты"
           </p>
