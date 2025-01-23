@@ -21,7 +21,7 @@ const RulesWrapper = () => {
             fill={false}
             alt='карточка5'
           /> */}
-          <p className={styles.textContent}>
+          {/* <p className={styles.textContent}>
             График имеет различные функции:
           </p>
           <p className={styles.textContent}>
@@ -59,7 +59,7 @@ const RulesWrapper = () => {
           </p>
           <p className={styles.textContent}>
             1. Возможность выбрать определенный диапозон дат
-          </p>
+          </p> */}
           {/* <Image className={styles.image + " " + styles.image_title}
             src={`/image/rules/datePicker1.jpg`}
             width={300}
