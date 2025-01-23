@@ -64,9 +64,9 @@ const RulesWrapper = () => {
             fill={false}
             alt='карточка4'
           />
-          {/* <p className={styles.textContent}>
+          <p className={styles.textContent}>
             При этом список доступных дат будет отображаться зеленым
-          </p> */}
+          </p>
                     <Image className={styles.image + " " + styles.image_title}
             src={`/image/rules/datePicker2.jpg`}
             width={300}
@@ -74,10 +74,10 @@ const RulesWrapper = () => {
             fill={false}
             alt='карточка3'
           />
-          {/* <p className={styles.textContent}>
+          <p className={styles.textContent}>
             Для того чтобы вернуться к текущим измерением необходимо нажать на кнопку "Очистить даты"
           </p>
-          <p className={styles.textContent}>
+          {/* <p className={styles.textContent}>
             2. Возможность изменить режим измерений. Врежиме реально времени данные будут показываться за последние 4 дня и будут обновляться при получении новых измерений.
             В сатическом режиме график обновляться не будет.
           </p> */}
