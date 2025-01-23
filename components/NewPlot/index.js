@@ -28,7 +28,9 @@ const NewPlot = ({apiUrl, isRealtime, dateRange }) => {
         let lines = data.split('\n');
 
         // Форматирование данных для отображения на графике
-        const lastNLines = lines.slice(Math.max(lines.length - 30000, 0));
+        // const lastNLines = lines.slice(Math.max(lines.length - 30000, 0));
+        const lastNLines = lines.slice(0); // Возьмет все элементы массива
+        
 
         const formattedData = lastNLines.map((line) => {
         // const formattedData = lines.map((line) => {
