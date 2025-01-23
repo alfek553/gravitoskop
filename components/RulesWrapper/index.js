@@ -12,7 +12,7 @@ const RulesWrapper = () => {
       <section className={styles.section}>
         <h1 className={styles.title}>Как управлять графиками</h1>
         <div className={styles.textContainer}>
-        <Image className={styles.image + " "+ styles.image_title}
+        <Image className={styles.image + " "+ styles.image_chart}
                             src={`/image/rules/work_with_chart.jpg`}
                             width={600}
                             height={200}

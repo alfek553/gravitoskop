@@ -75,3 +75,51 @@
     color: #890b0b;
   }
 }
+.block {
+  display: flex;
+}
+
+.blockText {
+  font-size: medium;
+}
+
+.image {
+margin:10px;
+border-radius: 10px;
+}
+.image_gravitoskop {
+  width: 386px;
+}
+.image_title {
+  width: 405px;
+  height: 500px;
+}
+.image_chart {
+  width: 600px;
+  height: 200px;
+}
+
+@media (max-width:643px) {
+  .block {
+      flex-wrap: wrap;
+  }
+  .image {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    margin-bottom: 10px;
+  }
+  .image_gravitoskop {
+    width: 286px;
+  }
+  .image_title {
+    width: 305px;
+    height: 400px;
+  }
+  .image_chart {
+    width: 300px;
+    height: 100px;
+  }
+  
+
+}
