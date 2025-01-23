@@ -14,6 +14,13 @@ const RulesWrapper = () => {
         <p className={styles.textContent}>
             График имеет различные функции:
           </p>
+          <Image className={styles.image + " " + styles.image_chart}
+            src={`/image/rules/work_with_chart.jpg`}
+            width={600}
+            height={200}
+            fill={false}
+            alt='карточка5'
+          />
           <p className={styles.textContent}>
             1. Скачать текущее изображение
           </p>
@@ -50,13 +57,6 @@ const RulesWrapper = () => {
           <p className={styles.textContent}>
             1. Возможность выбрать определенный диапозон дат
           </p>
-          <Image className={styles.image + " " + styles.image_chart}
-            src={`/image/rules/work_with_chart.jpg`}
-            width={600}
-            height={200}
-            fill={false}
-            alt='карточка5'
-          />
                     <Image className={styles.image + " " + styles.image_title}
             src={`/image/rules/datePicker1.jpg`}
             width={300}
@@ -64,6 +64,9 @@ const RulesWrapper = () => {
             fill={false}
             alt='карточка4'
           />
+          <p className={styles.textContent}>
+            При этом список доступных дат будет отображаться зеленым
+          </p>
                     <Image className={styles.image + " " + styles.image_title}
             src={`/image/rules/datePicker2.jpg`}
             width={300}
@@ -71,38 +74,14 @@ const RulesWrapper = () => {
             fill={false}
             alt='карточка3'
           />
-          <p className={styles.textContent}>    Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati voluptates
-            nisi voluptatum quam voluptatem laboriosam? Commodi nam aut velit fuga, quis
-            nihil quisquam itaque eos tempore veniam accusantium porro cum.
+          <p className={styles.textContent}>
+            Для того чтобы вернуться к текущим измерением необходимо нажать на кнопку "Очистить даты"
           </p>
-          <p className={styles.textContent}>    Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati voluptates
-            nisi voluptatum quam voluptatem laboriosam? Commodi nam aut velit fuga, quis
-            nihil quisquam itaque eos tempore veniam accusantium porro cum.
+          <p className={styles.textContent}>
+            2. Возможность изменить режим измерений. Врежиме реально времени данные будут показываться за последние 4 дня и будут обновляться при получении новых измерений.
+            В сатическом режиме график обновляться не будет.
           </p>
-          <p className={styles.textContent}>    Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati voluptates
-            nisi voluptatum quam voluptatem laboriosam? Commodi nam aut velit fuga, quis
-            nihil quisquam itaque eos tempore veniam accusantium porro cum.
-          </p>
-          <p className={styles.textContent}>    Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati voluptates
-            nisi voluptatum quam voluptatem laboriosam? Commodi nam aut velit fuga, quis
-            nihil quisquam itaque eos tempore veniam accusantium porro cum.
-          </p>
-          <p className={styles.textContent}>    Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati voluptates
-            nisi voluptatum quam voluptatem laboriosam? Commodi nam aut velit fuga, quis
-            nihil quisquam itaque eos tempore veniam accusantium porro cum.
-          </p>
-          <p className={styles.textContent}>    Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati voluptates
-            nisi voluptatum quam voluptatem laboriosam? Commodi nam aut velit fuga, quis
-            nihil quisquam itaque eos tempore veniam accusantium porro cum.
-          </p>
-          <p className={styles.textContent}>    Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati voluptates
-            nisi voluptatum quam voluptatem laboriosam? Commodi nam aut velit fuga, quis
-            nihil quisquam itaque eos tempore veniam accusantium porro cum.
-          </p>
-          <p className={styles.textContent}>    Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati voluptates
-            nisi voluptatum quam voluptatem laboriosam? Commodi nam aut velit fuga, quis
-            nihil quisquam itaque eos tempore veniam accusantium porro cum.
-          </p>
+         
 
         </div>
       </section>
