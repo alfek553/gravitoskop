@@ -1,5 +1,6 @@
 import styles from './styles.module.scss';
 import Link from 'next/link';
+import Image from 'next/image';
 
 /**
  * Компонент `RulesWrapper` отображает страницу правил игры.
@@ -12,9 +13,9 @@ const RulesWrapper = () => {
         <h1 className={styles.title}>Как управлять графиками</h1>
         <div className={styles.textContainer}>
         <Image className={styles.image + " "+ styles.image_title}
-                            src={`/image/rules/work_with_chart.png`}
-                            width={405}
-                            height={500}
+                            src={`/image/rules/work_with_chart.jpg`}
+                            width={600}
+                            height={200}
                             fill={false}
                             alt='карточка'
                         />
@@ -58,9 +59,9 @@ const RulesWrapper = () => {
             1. Возможность выбрать определенный диапозон дат
           </p>
           <Image className={styles.image + " "+ styles.image_title}
-                            src={`/image/rules/datePicker1.png`}
-                            width={405}
-                            height={500}
+                            src={`/image/rules/datePicker1.jpg`}
+                            width={300}
+                            height={400}
                             fill={false}
                             alt='карточка'
                         />
@@ -68,9 +69,9 @@ const RulesWrapper = () => {
             При этом список доступных дат будет отображаться зеленым
           </p>
           <Image className={styles.image + " "+ styles.image_title}
-                            src={`/image/rules/datePicker2.png`}
-                            width={405}
-                            height={500}
+                            src={`/image/rules/datePicker2.jpg`}
+                            width={300}
+                            height={400}
                             fill={false}
                             alt='карточка'
                         />
