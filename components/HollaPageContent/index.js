@@ -28,7 +28,7 @@ const HollaPageContent = () => {
         <div className={styles.plotWrapper}>
           <NewPlot apiUrl={pageApiUrl} isRealtime={isRealtime} dateRange={dateRange} />
         </div>
-        <DateRangePicker onDateChange={handleDateChange} pageApiUrl={pageApiUrl} />
+        <DateRangePicker onDateChange={handleDateChange} apiUrl={pageApiUrl} />
         <OperatingMode isRealtime={isRealtime} onModeChange={setIsRealtime} onDateChange={handleDateChange} />
         <div className={styles.buttonWrapper}>
           <ButtonDelay />
