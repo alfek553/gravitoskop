@@ -1,7 +1,7 @@
 // app/api/proxy/route.js
 export async function GET(req) {
   try {
-    const url = new URL(`http://xn--80auzl.xn--p1ai/Holla/data.txt`);  // Ваш URL
+    const url = new URL(`http://xn--80auzl.xn--p1ai/Holla/data_holla.txt`);  // Ваш URL
     const response = await fetch(url, { cache: 'no-store' });
 
     if (!response.ok) {
